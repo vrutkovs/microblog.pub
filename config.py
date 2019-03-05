@@ -92,9 +92,7 @@ USER_AGENT = (
     f"{requests.utils.default_user_agent()} (microblog.pub/{VERSION}; +{BASE_URL})"
 )
 
-mongo_client = MongoClient(
-    host=[os.getenv("MICROBLOGPUB_MONGODB_HOST", "localhost:27017")]
-)
+mongo_client = MongoClient(os.getenv("MICROBLOGPUB_MONGODB_URI"))
 
 DB_NAME = "{}_{}".format(USERNAME, DOMAIN.replace(".", "_"))
 DB = mongo_client[DB_NAME]
