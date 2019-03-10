@@ -5,7 +5,7 @@
 <data class="u-photo" value="{{ config.ME.icon.url }}"></data>
 <a href="{{ config.ID }}" class="u-url u-uid no-hover title">
 	<span style="font-size:1.1em;">{{ config.NAME }}</span>
-	<span  style="font-size:0.85em;" class="subtitle-username">@<span class="gold p-name">{{ config.USERNAME }}</span>@<span class="gold">{{ config.DOMAIN }}</span>
+	<span  style="font-size:0.85em;" class="subtitle-username"><span class="gold p-name">{{ config.USERNAME }}</span>@<span class="gold">{{ config.DOMAIN }}</span>
         {% if not session.logged_in %}<small><a class="remote-follow-button" href="/remote_follow">Remote follow</a></small>{% endif %}
 </a>
 
