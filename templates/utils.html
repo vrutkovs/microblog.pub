@@ -59,7 +59,7 @@
 	<div class="note-container{% if perma %} perma{%endif%} p-name e-content">
 
     {% if obj | has_type('Article') %}
-    {{ obj.name }} <a href="{{ obj | url_or_id | get_url }}">{{ obj | url_or_id | get_url }}</a>
+    {{ obj.name }} <a target=”_blank” href="{{ obj | url_or_id | get_url }}">{{ obj | url_or_id | get_url }}</a>
     {% else %}
 	{{ obj.content | clean | safe }}
     {% endif %}
@@ -73,11 +73,11 @@
 	{% endif %}
 	{% for a in obj.attachment %}
     {% if (a.mediaType and a.mediaType.startswith("image/")) or (a.type and a.type == 'Image') %}
-    <a href="{{ a.url | get_attachment_url(None) }}"><img src="{{a.url | get_attachment_url(720) }}" class="img-attachment"></a>
+    <a target=”_blank” href="{{ a.url | get_attachment_url(None) }}"><img src="{{a.url | get_attachment_url(720) }}" class="img-attachment"></a>
     {% elif (a.mediaType and a.mediaType.startswith("video/")) %}
     <li><video controls preload="metadata"  src="{{ a.url }}" width="480"></video></li>
 	{% else %}
-	<li><a href="{{a.url }}" class="l">{% if a.filename %}{{ a.filename }}{% else %}{{ a.url }}{% endif %}</a></li>
+	<li><a target=”_blank” href="{{a.url }}" class="l">{% if a.filename %}{{ a.filename }}{% else %}{{ a.url }}{% endif %}</a></li>
 	{% endif  %}
 	{% endfor %}
 	{% if obj.attachment | not_only_imgs %}
@@ -91,7 +91,7 @@
 {% if meta and meta.og_metadata and obj | has_type('Note') %}
 {% for og in meta.og_metadata %}
 {% if og.url %}
-<a href="{{ og.url }}" class="og-link" style="margin:30px 0;clear:both;display: flex;">
+<a target=”_blank” href="{{ og.url }}" class="og-link" style="margin:30px 0;clear:both;display: flex;">
 <div>
 <img  style="width:100px;border-radius:3px;" src="{{ og.image | get_og_image_url }}">
 </div>
