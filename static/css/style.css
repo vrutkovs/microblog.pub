@@ -1,1 +1,16 @@
-@import /static/css/BlobMoji.css
+@import /static/css/BlobMoji.css;
+
+.note {
+  box-shadow: 0 1px 4px hsla(0,0%,0%,.25);
+  border: solid 1px #ededed;
+  border-radius: 6px;
+  padding: 15px 15px 0px;
+}
+
+.note .bottom-bar {
+  margin: 0px 0px 5px !important;
+}
+
+.note-box {
+  margin-bottom: 20px !important;
+}
